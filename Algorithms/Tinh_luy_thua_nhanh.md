@@ -2,7 +2,8 @@
 Giả sử cần tính $a^n$ với $n$ = $10^{18}$, thay vì phải thực hiện $O(n)$ tức là $10^{18}$ phép nhân, ta chỉ cần thực hiện $O(\log_2(n))$ ~ 60 phép nhân
 ### Tư tưởng chính: Chia để trị (Devide and Conquer)
 ## Cách 1: Thao tác trên số thông thường
-### Nếu n chẵn: $$ a^n = a^{n/2} * a^{n/2}$$ Nếu n lẻ: $$a^n = a * a^{n/2} * a^{n/2}$$ 
+### Nếu n chẵn: $$a^n = a^{n/2} * a^{n/2}$$ 
+### Nếu n lẻ: $$a^n = a * a^{n/2} * a^{n/2}$$ 
 
 * Lưu ý: có phép chia $MOD$
 
