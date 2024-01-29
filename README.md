@@ -1,6 +1,6 @@
 # Competitive_Programming
-Các thuật toán &amp; ctdl trong lập trình thi đấu
+Algorithms and Data structures in Competitive Programming
 
-## Link drive has all completion of algorithms and data structures :>
+## Link drive has all completion of DSA :>
     https://drive.google.com/file/d/1FMdN_OCfOI0iAeDlqswCiC2DZzD4nPsb/view
 
