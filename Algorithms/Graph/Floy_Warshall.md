@@ -1,7 +1,7 @@
 # Floy Warshall
 ### Bài tập áp dụng:
 (https://codeforces.com/gym/502692/problem/A)
-## Ý tưởng: 3 vòng lặp lồng nhau ($O(n^3)$), vòng lặp bên ngoài tìm đỉnh trung gian để xem liệu có đường đi được nối từ 2 điểm của vòng lặp trong với điểm ở vòng lặp ngoài không
+## Ý tưởng: 3 vòng lặp lồng nhau $(O(n^3))$, vòng lặp bên ngoài tìm đỉnh trung gian để xem liệu có đường đi được nối từ 2 điểm của vòng lặp trong với điểm ở vòng lặp ngoài không
 Mã giả:
 ```
 for (k) // Tìm đỉnh trung gian k thích hợp giữa i và j, nghĩa là có đường đi từ i->k và k->j
