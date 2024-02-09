@@ -97,7 +97,8 @@ int32_t main()
     cout << cnt << endl;
 }
 ```
-Time complexity: O(n.log(n))
+### Time complexity: O(n.log(n))
+
 ### Explaination:
 - `lower_bound` return the **first** address of element which has value is not greater than x (>=)
 - `upper_bound` return the address of element which has value is greater than x (>)
