@@ -45,7 +45,7 @@ int32_t main()
 - Backtrack B
 - sort B
 - Iterate array A, using binary search to count the numbers of elements (x - A[i]) in B
-
+It's more optimistic because $O(2^{\frac{n}{2}}) = O(\sqrt{2^n})$
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
@@ -84,10 +84,10 @@ int32_t main()
     cin >> n >> x;
     a.resize(n);
     for (auto &i : a) cin >> i;
-    tryX(0, 0); // 0 -> n/2
-    tryY(n/2 + 1, 0); // n/2 + 1 -> n - 1
+    tryX(0, 0); // [0, n/2] - O(2^K), K = n/2
+    tryY(n/2 + 1, 0); // [n/2 + 1, n-1] - O(2^K)
 
-    sort(B.begin(), B.end());
+    sort(B.begin(), B.end()); // O(n.log(n))
 
     // Iterate through A and B and use binary search: count the number of elements in B have value = x - A[i]
     for (int sum : A) // O(n/2) = O(n)
@@ -97,7 +97,7 @@ int32_t main()
     cout << cnt << endl;
 }
 ```
-### Time complexity: O(n.log(n))
+### Time complexity: $O(2^K + 2^K + n.log(n)) = O(2^K)$ 
 
 ### Explaination:
 - `lower_bound` return the **first** address of element which has value is not greater than x (>=)
