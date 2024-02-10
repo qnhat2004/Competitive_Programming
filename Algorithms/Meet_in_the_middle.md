@@ -50,22 +50,12 @@ int32_t main()
 - Iterate array A, for each sumA we using binary search to count the numbers of elements (x - A[i]) in B.
 It's more optimistic because $O(2^{\frac{n}{2}}) = O(\sqrt{2^n})$
 
-### Using two pointers
-- Let rest = target - sumA ==> count B[i] which satisfying B[i] = rest = target - sumA
-- Use 2 pointers: j1 (B[j1] > rest) and j2 (B[j2] >= rest), (j1 & j2) < B.size()
-- Iterate array A, with each sum of A, while j1 and j2 are satisfy the condition, we increase two pointers
-- (j2 - j1) is the numbers of elements satisfying of each iteration
-  
-> [!NOTE]
-> Because A is decreasing and B is ascending ==> A[i] > A[i+1], B[i] < B[i+1] ==> target - A[i] = rest1 < target - A[i+1] = rest2 ==> rest1 < rest2. So j1 and j2 are alway ascending(shift to the right of array)
-
 ### Code:
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
 #define int long long
-#define All(x) (x).begin(), (x).end()
 
 int n, cnt = 0, target;
 vector<int> A, B;
@@ -104,15 +94,13 @@ int32_t main()
     sort(B.begin(), B.end()); // O(n.log(n))
 
     // Iterate through A and B and use binary search: count the number of elements in B have value = target - A[i]
-    for (int sumA : A) // O(n/2) = O(n)
+    for (int sumA : A) 
     {
-        cnt += upper_bound(All(B), target - sumA) - lower_bound(All(B), target - sumA); // O(log(n/2)) = O(log(n))
+        cnt += upper_bound(All(B), target - sumA) - lower_bound(All(B), target - sumA); // O(n/2 * log(n/2)) = O(nlog(n))
     }
     cout << cnt << endl;
 }
 ```
-
-### Time complexity: $O(2^K + 2^K + n.log(n)) = O(2^K)$ 
 
 ### Explaination:
 - `lower_bound` return the **first** address of element which has value is not greater than x (>=)
@@ -133,3 +121,70 @@ int32_t main()
     --> lower_bound(4) = 2, upper_bound(4) = 5
     --> upper_bound - lower_bound = 5 - 2 = 3 elements
     ```
+
+### Using two pointers
+- Let rest = target - sumA ==> count B[i] which satisfying B[i] = rest = target - sumA
+- Use 2 pointers: j1 (B[j1] > rest) and j2 (B[j2] >= rest), (j1 & j2) < B.size()
+- Iterate array A, with each sum of A, while j1 and j2 are satisfy the condition, we increase two pointers
+- (j2 - j1) is the numbers of elements satisfying of each iteration
+  
+> [!NOTE]
+> Because A is decreasing and B is ascending ==> A[i] > A[i+1], B[i] < B[i+1] ==> target - A[i] = rest1 < target - A[i+1] = rest2 ==> rest1 < rest2. So j1 and j2 are alway ascending(shift to the right of array)
+
+### Code:
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+#define int long long
+
+int n, cnt = 0, x;
+vector<int> A, B;
+vector<int> a;
+
+void tryX(int i, int sum)
+{
+    if (sum > x) return; // ==> A and B have the values <= x
+    if (i == n/2 + 1) A.push_back(sum);
+    else
+    {
+        tryX(i + 1, sum);
+        tryX(i + 1, sum + a[i]);
+    }
+}
+
+void tryY(int i, int sum)
+{
+    if (sum > x) return;
+    if (i == n) B.push_back(sum);
+    else
+    {
+        tryY(i + 1, sum);
+        tryY(i + 1, sum + a[i]);
+    }
+}
+
+int32_t main()
+{
+    cin >> n >> x;
+    a.resize(n);
+    for (auto &i : a) cin >> i;
+    tryX(0, 0); // 0 -> n/2
+    tryY(n/2 + 1, 0); // n/2 + 1 -> n - 1
+
+    sort(A.begin(), A.end(), greater<int>());
+    sort(B.begin(), B.end());
+
+    int cnt = 0;
+    for (int i = 0, j1 = 0, j2 = 0; i < A.size(); ++i)
+    {
+        while (j1 < B.size() && B[j1] + A[i] < x) ++j1;
+        while (j2 < B.size() && B[j2] + A[i] <= x) ++j2;
+        cnt += j2 - j1;
+    }    
+    cout << cnt << endl;
+}
+```
+
+### Time complexity: $O(2^K + 2^K + n.log(n)) = O(2^K)$ 
+
