@@ -1,4 +1,4 @@
-# Fastest way to calculate the nth Fibonacci number
+# Fastest way to calculate the $n^{th}$ Fibonacci number
 
 ## Tutorial:
 https://www.nayuki.io/page/fast-fibonacci-algorithms
