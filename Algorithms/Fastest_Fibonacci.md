@@ -39,7 +39,7 @@ print(fibonacci(n))
 ```
 
 ## Explain why we must return two other values when n % 2 == 0 or vice versa (ngược lại)
-  When n % 2 != 0: 
+  When n % 2 != 0: (n is odd)
   +> Assume n = 5, so we must calculate F(2n) with 2n = 5 --> n = 5/2 = 2 <br/>
   +> a, b = F(n) F(n+1) = F(2) F(3)   <br/>
   +> c = F(2*n) = F(2 * 2) = F(4) (Because we use interger division so when the number is odd and we divide by 2, it will rounded down (làm tròn xuống)  <br/>
