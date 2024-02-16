@@ -11,7 +11,12 @@
 - $x^n$ mod m = $(x \ mod \ m)^n$ mod m
 
 > [!IMPORTANT]
-> At expression `(x - y) mod m` we must add the value m because the result of `x - y` can be negative, then `(x-y) mod m` is other with expectation. Example `-10 mod 3 = 2` instead of 1, because the remainder r is always positive and `-10 = (-4)*3 + 2`, so it return 2 instead of 1. Thus, to ensure the result of `x - y` is always a positive number, we add the value `m` before performing modulo `m`. It's not change the result because **(a + m) mod m = a mod m**
+> At expression `(x - y + m) mod m`, we must add the value m because the result of `x - y` can be negative, then `(x-y) mod m` is other with expectation. Example `-10 mod 3 = 2` instead of 1, because the remainder r is always positive and `-10 = (-4)*3 + 2`, so it return 2 instead of 1 **(Except Python, in python it also return 1, so we may not need to add m)**. Thus, to ensure the result of `x - y` is always a positive number, we add the value `m` before performing modulo `m`. It's not change the result because **(a + m) mod m = a mod m**
+
+### Practice:
+https://www.hackerrank.com/contests/300-bai-code-thieu-nhi/challenges/fibonacci-tle/problem
+
+---
 
 # Modulo, Modular and Modulus
 See details: https://www.geeksforgeeks.org/difference-between-modulo-and-modulus/
