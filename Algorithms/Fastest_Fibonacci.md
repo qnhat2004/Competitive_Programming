@@ -14,7 +14,7 @@ $$F(n) = F^2(\frac{n}{2} \pm 1) + F^2(\frac{n}{2})$$
 
 ## Code:
 ```python
-MOD = 1**9 + 7
+MOD = 10**9 + 7
 def mod(a, b):    
     return (a % MOD + b % MOD) % MOD
 def mul(a, b):
