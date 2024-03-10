@@ -8,4 +8,4 @@
     + [Creating Strings I - CSES](https://cses.fi/problemset/task/1622)
 
 > [!TIP]
-> Use next_permutation() function in C++ to generate all permutations of a sequence.
+> Use **next_permutation()** function in C++ to generate all permutations of a sequence.
