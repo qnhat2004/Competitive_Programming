@@ -34,4 +34,7 @@ ms.upper_bound(5); // Returns an iterator pointing to the first element that is 
 # Practice Problems
 <!-- - [CSES - Playlist](https://cses.fi/problemset/task/1141) -->
 - [CSES - Concert Tickets](https://cses.fi/problemset/task/1091)
-
+    - Uses of multiset: 
+        - store the ticket prices in sorted order and then find the price of the ticket that is closest to the customer's budget by using **lower_bound()** function
+        - erasing the ticket price from the multiset after selling the ticket by using **erase()** function, it took **O(log(n))** time instead of **O(n)** time if we use array or vector.
+        - Time complexity: **O(nlog(n) + mlog(n))**
