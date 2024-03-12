@@ -7,16 +7,16 @@
 ```cpp
 void solve()
 {
-    multiset<int> s;
     int n, m;
     cin >> n >> m;
+
+    multiset<int> s;
     int h[n];
-    
     for (int i = 0; i < n; ++i) {
         cin >> h[i];
         s.insert(-h[i]);
     }  
-    
+
     int tmp;  
     for (int i = 0; i < m; ++i) {
         cin >> tmp;
