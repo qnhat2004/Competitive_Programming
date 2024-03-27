@@ -74,10 +74,11 @@ string Multiplication_OneNumber(string a, char b) {
 // Multiplication two numbers
 string Multiplication(string a, string b) {
     string ans = "0";
-    for (int i = 0; i < b.length(); ++i) {
+    for (int i = b.length() - 1; i >= 0; --i) {
         string temp = Multiplication_OneNumber(a, b[i]);
         for (int j = 0; j < b.length() - i - 1; ++j)
             temp += "0";
+        // printf("%d * %s = %s\n", Int(b[i]), a.c_str(), temp.c_str());
         ans = Sum(ans, temp);
     }
     return ans;

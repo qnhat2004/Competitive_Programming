@@ -1,0 +1,1 @@
+{"name":"Local: Add_Binus_Multiple","url":"d:\\Competitive_Programming\\Algorithms\\BigNum\\Add_Binus_Multiple.cpp","tests":[{"id":1711560448693,"input":"10\n11\n","output":"21\n-1\n110\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Competitive_Programming\\Algorithms\\BigNum\\Add_Binus_Multiple.cpp","group":"local","local":true}
